@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mkt_web_lcr_res_partner_inherit_form" model="ir.ui.view">
+        <field name="name">res.partner.inherit.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <group name="accounting_entries" position="after">
+                <group string="Information LCR WEB" name="web_lcr" >
+                    <field name="web_iban" />
+                    <field name="web_bic_swift" />
+                    <field name="web_rib_name" invisible="1"/>
+                    <field name="web_rib" filename="web_rib_name" />
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

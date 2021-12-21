@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="mail_activity_data_todo" model="mail.activity.type">
+            <field name="name">À faire</field>
+            <field name="icon">fa-tasks</field>
+            <field name="delay_count">5</field>
+            <field name="sequence">12</field>
+            <field name="ref">todo</field>
+        </record>
+    </data>
+</odoo>

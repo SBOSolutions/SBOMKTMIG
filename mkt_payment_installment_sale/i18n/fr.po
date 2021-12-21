@@ -1,0 +1,587 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* payment_installment_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-19 08:24+0000\n"
+"PO-Revision-Date: 2021-09-19 08:24+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<b>Amount</b>"
+msgstr "<b>Montant</b>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<b>Description</b>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<b>Echeance / Term</b>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<b>Montant / Amount</b>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<b>Payment Date</b>"
+msgstr "<b>Date de paiement</b>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<b>Payment Status</b>"
+msgstr "<b>Statut du paiement</b>"
+
+#. module: payment_installment_sale
+#: model:mail.template,body_html:mkt_payment_installment_sale.email_template_send_plf
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"            Cher Client,\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"            Merci de trouver ci-joint votre plan de financement associé à votre commande.\n"
+"                    <br/>\n"
+"            Nous vous proposons un plan de financement par chèques, calculé à partir de la date prévue de début de vos livraisons.\n"
+"                    <br/>\n"
+"            Merci de nous faire parvenir les chèques correspondants au plus vite, avant le DATE ?,\n"
+"            à l'ordre de \"Jane Blue\" ou \"E.M.D\" à l'adresse suivante :\n"
+"                    <br/>\n"
+"            Jane Blue // E.M.D\n"
+"            20, rue des Jeuneurs\n"
+"            75002 PARIS\n"
+"                    <br/>\n"
+"            Dès réception de ces chèques, nous pourrons préparer au mieux votre livraison, à partir de la date inscrite sur votre confirmation de\n"
+"            commande.\n"
+"                    <br/>\n"
+"            Nous vous remercions par avance et vous souhaitons une agréable journée,\n"
+"                    <br/>\n"
+"            Cordialement,\n"
+"                    <br/>\n"
+"            L'équipe Jane Blue\n"
+"                    <br/>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:mail.template,body_html:mkt_payment_installment_sale.email_template_send_plf_reminder
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"            Cher Client,\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"            Nous n'avons à ce jour pas receptionné votre plan de financement associé à votre commande.\n"
+"                    <br/>\n"
+"            Pour rappel nous vous proposons un plan de financement par chèques, calculé à partir de la date prévue de début de vos livraisons.\n"
+"                    <br/>\n"
+"            Merci de nous faire parvenir les chèques correspondants au plus vite, avant le DATE ?,\n"
+"            à l'ordre de \"Jane Blue\" ou \"E.M.D\" à l'adresse suivante :\n"
+"                    <br/>\n"
+"            Jane Blue // E.M.D\n"
+"            20, rue des Jeuneurs\n"
+"            75002 PARIS\n"
+"                    <br/>\n"
+"            Dès réception de ces chèques, nous pourrons préparer au mieux votre livraison, à partir de la date inscrite sur votre confirmation de\n"
+"            commande.\n"
+"                    <br/>\n"
+"            Nous vous remercions par avance et vous souhaitons une agréable journée,\n"
+"                    <br/>\n"
+"            Cordialement,\n"
+"                    <br/>\n"
+"            L'équipe Jane Blue\n"
+"                    <br/>\n"
+"                </p>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<strong>Acompte/Down payment:</strong>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<strong>Address:</strong>"
+msgstr "<strong>Adresse:</strong>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<strong>Adresse:</strong>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<strong>Client / Customer:</strong>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<strong>Customer:</strong>"
+msgstr "<strong>Client:</strong>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<strong>Date de commande / Order date:</strong>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<strong>Down Payment:</strong>"
+msgstr "<strong>Acompte:</strong>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Date de facture:</strong>"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "<strong>Total</strong>"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__amt
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__amt_inv
+msgid "Amount"
+msgstr "Montant"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "Commande N° / Order #"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_res_config_settings
+msgid "Config Settings"
+msgstr "Paramètres de config"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__create_uid
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__create_date
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__description
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__description_inv
+msgid "Description"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__difference_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__difference_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__difference_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__difference_amount
+msgid "Difference Amount"
+msgstr "Montant du versement échelonné"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__display_name
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_stock_picking__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__down_bool
+msgid "Down Bool"
+msgstr "Montant de l’acompte"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__down_payment
+msgid "Down Payment"
+msgstr "Acompte"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__down_payment_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__down_payment_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__down_payment_inv
+msgid "Down Payment Amount"
+msgstr "Montant de l’acompte"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__draft
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__pay_date
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__pay_date
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__pay_date
+msgid "First Payment Date"
+msgstr "Date premier paiement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__payment_ids
+msgid "For Invoice class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__note_ids
+msgid "For Notebook class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__pay_ids
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__pay_ids
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__pay_ids
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__wizard_ids
+msgid "For Payment Wizard"
+msgstr "En Paiement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__soid
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__soid
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__soid
+msgid "For Sale order"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__sale_order__installment_status__generate
+msgid "Generate"
+msgstr "Généré"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Generate Installment"
+msgstr "Générer le plan de financement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_res_config_settings__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__id
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_stock_picking__id
+msgid "ID"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__in_payment
+msgid "In Payment"
+msgstr "En Paiement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__installment_yesno
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Installment"
+msgstr "Plan de financement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__installment_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__installment_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__installment_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__installment_amount
+msgid "Installment Amount"
+msgstr "Montant du Plan de financement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__installment_bool
+msgid "Installment Bool"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__relation_ids
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__relation_ids
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__relation_ids
+msgid "Installment Invoice class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.actions.act_window,name:mkt_payment_installment_sale.action_sales_page_installments
+msgid "Installment Page"
+msgstr "Plan de financement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__notebook_ids
+msgid "Installment Sale class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__installment_status
+msgid "Installment Status"
+msgstr "Statut du PF"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__installment_send_date
+msgid "Installment send date"
+msgstr "Date d'envoi du PF"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_res_config_settings__installment_option
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.res_config_sale_installment
+msgid "Installments"
+msgstr "Plan de financement"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "Invoice #"
+msgstr "Facture N°"
+
+#. module: payment_installment_sale
+#: model:ir.actions.report,name:mkt_payment_installment_sale.report_inv_installment
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_invoice_installment_view
+msgid "Invoice Installment Report"
+msgstr "Rapport sur les versements de factures"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__invoicing_legacy
+msgid "Invoicing App Legacy"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.res_config_sale_installment
+msgid "It allows you to manage installments in Sale and Invoice."
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order____last_update
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_stock_picking____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__write_uid
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification le"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__write_date
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__sale_order__installment_status__new
+msgid "New"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__next_payment_date
+msgid "Next Payment Date"
+msgstr "Date premier paiement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__number
+msgid "No"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__not_paid
+msgid "Not Paid"
+msgstr "Non payé"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__installment_ids
+msgid "Notebook Class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__inv_ids
+msgid "Notebook Invoice class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__option
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__option
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__option
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment_register__option
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__option
+msgid "Option"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:mail.template,report_name:mkt_payment_installment_sale.email_template_send_plf
+#: model:mail.template,report_name:mkt_payment_installment_sale.email_template_send_plf_reminder
+msgid "PF-${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__paid
+msgid "Paid"
+msgstr "Payé"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__partial
+msgid "Partially Paid"
+msgstr "Payé partiellement"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+msgid "Pay"
+msgstr "Payer"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+msgid "Pay Down Payment"
+msgstr "Verser un acompte"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__payable_amount
+msgid "Payable Amount"
+msgstr "Montant à payer"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_class__payment_date
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__payment_date_inv
+msgid "Payment Date"
+msgstr "Date de paiement"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_notebook_invoice__payment_status_inv
+msgid "Payment Status"
+msgstr "Statut du paiement"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.report_sale_installment_view
+msgid "Plan de financement"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:mail.template,subject:mkt_payment_installment_sale.email_template_send_plf
+msgid "Plan de financement (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__sale_order__installment_status__received
+msgid "Received"
+msgstr "Reçu"
+
+#. module: payment_installment_sale
+#: code:addons/payment_installment_sale/models/invoice.py:0
+#: code:addons/payment_installment_sale/models/invoice.py:0
+#: code:addons/payment_installment_sale/models/invoice.py:0
+#: model:ir.model,name:mkt_payment_installment_sale.model_account_payment_register
+#, python-format
+msgid "Register Payment"
+msgstr "Enregistrer un paiement"
+
+#. module: payment_installment_sale
+#: model:mail.template,subject:mkt_payment_installment_sale.email_template_send_plf_reminder
+msgid "Relance - Plan de financement (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Reminder plf by mail"
+msgstr "Rappel PF par mail"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__notebook_invoice__payment_status_inv__reversed
+msgid "Reversed"
+msgstr "Reservé"
+
+#. module: payment_installment_sale
+#: model:ir.actions.report,name:mkt_payment_installment_sale.report_sale_inv
+msgid "Sale Installment Report"
+msgstr "Rapport sur les mensualités de vente"
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Send plf by mail"
+msgstr "Envoyer le PF par mail"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields.selection,name:mkt_payment_installment_sale.selection__sale_order__installment_status__sent
+msgid "Sent"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__tenure_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__tenure_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__tenure_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__tenure
+msgid "Tenure(months)"
+msgstr "Nombre d'échéances (mois)"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Total"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_bank_statement_line__total_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_move__total_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_account_payment__total_amount_inv
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_sale_order__total_amount
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Total Amount"
+msgstr "Montant Total"
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.sale_installment_view_order_form
+msgid "Tree String"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model_terms:ir.ui.view,arch_db:mkt_payment_installment_sale.inoice_installment_view_order_form
+msgid "View Installments"
+msgstr "Voir les PF"
+
+#. module: payment_installment_sale
+#: model:ir.model.fields,field_description:mkt_payment_installment_sale.field_stock_picking__installment_status
+msgid "installment status"
+msgstr "Statut du PF"
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_notebook_class
+msgid "notebook.class"
+msgstr ""
+
+#. module: payment_installment_sale
+#: model:ir.model,name:mkt_payment_installment_sale.model_notebook_invoice
+msgid "notebook.invoice"
+msgstr ""

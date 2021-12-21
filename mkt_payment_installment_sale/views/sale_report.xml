@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id='report_sale_inv' model='ir.actions.report'>
+		<field name='name'>Sale Installment Report</field>
+		<field name='model'>sale.order</field>
+		<field name='report_type'>qweb-pdf</field>
+		<field name='report_name'>mkt_payment_installment_sale.report_sale_installment_view</field>
+		<field name='report_file'>mkt_payment_installment_sale.report_sale_inv</field>
+		<field name='binding_model_id' ref='model_sale_order'/>
+		<field name='binding_type'>report</field>
+	</record>
+
+    <template id="report_sale_installment_view">
+        <t t-call='web.html_container'>
+            <t t-foreach="docs" t-as='o'>
+                <t t-call="web.external_layout">
+                    <div class='page'>
+                        <div class="oe_structure">
+                            <h4 style="text-align:center" class="text-uppercase"><span t-field="o.payment_term_id.name"/></h4>
+                            <br />
+                            <h5 style="text-align:left">
+                                Commande N° / Order #
+                                <span t-field="o.name" />
+                            </h5>
+                            <br />
+                            <div>
+                                <div class="row mt32 mb32">
+                                    <div class="col-auto col-2 mw-100 mb-2">
+                                        <strong>Client / Customer:</strong>
+                                        <p class="m-0" t-field="o.partner_id.name" />
+                                    </div>
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Adresse de facturation / invoice:</strong>
+                                        <p class="m-0">
+                                            <span t-field="o.partner_invoice_id.name" />
+                                            <span t-field="o.partner_invoice_id.street" />
+                                            <span t-field="o.partner_invoice_id.street2" />
+                                            <span t-field="o.partner_invoice_id.zip" />
+                                            <span t-field="o.partner_invoice_id.city" />
+                                            <span t-field="o.partner_invoice_id.country_id.name" />
+                                        </p>
+                                    </div>
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Adresse de livraison / delivery:</strong>
+                                        <p class="m-0">
+                                            <span t-field="o.partner_shipping_id.name" />
+                                            <span t-field="o.partner_shipping_id.street" />
+                                            <span t-field="o.partner_shipping_id.street2" />
+                                            <span t-field="o.partner_shipping_id.zip" />
+                                            <span t-field="o.partner_shipping_id.city" />
+                                            <span t-field="o.partner_shipping_id.country_id.name" />
+                                        </p>
+                                    </div>
+                                    <div class="col-auto col-2 mw-100 mb-2">
+                                        <strong>Date de commande / Order date:</strong>
+                                        <p class="m-0" t-field="o.date_order" t-options='{"widget": "date"}' />
+                                    </div>
+                                    <div class="col-auto col-2 mw-100 mb-2">
+                                        <strong t-if="o.down_payment">Acompte/Down payment:</strong>
+                                        <p class="m-0" t-if="o.down_payment" t-field="o.down_payment" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}' />
+                                        <strong>Date de livraison :</strong>
+                                        <p class="m-0" t-field="o.commitment_date" t-options='{"widget": "date"}' />
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <p>
+                                Cher Client,<br/>
+                                Merci de trouver ci-dessous le plan de financement associé à votre commande N°<span t-field="o.name"/><br/>
+                                Nous vous proposons un <span t-field="o.payment_term_id.note"/>, calculé à partir de la date prévue de<br/>
+                                début de vos livraisons.<br/>
+                                <p t-if="o.payment_term_id.payment_mode in ('CHEQUE')">
+                                    Merci de nous faire parvenir les chèques correspondants au plus vite, avant le <span t-esc="(context_timestamp(datetime.datetime.now()) + datetime.timedelta(days=30)).strftime('%d/%m/%Y')"/>,à l'ordre de "Jane Blue" ou "E.M.D" à l'adresse suivante:<br/>
+                                    <p style="margin-left:30px">
+                                        JANE BLUE // E.M.D<br/>
+                                        20, rue des Jeuneurs<br/>
+                                        75002 PARIS<br/>
+                                    </p>
+                                    Dès réception de ces chèques, nous pourrons préparer au mieux votre livraison, à partir de la date<br/>
+                                    inscrite sur votre confirmation de commande.
+                                </p>                               
+                                <p t-if="o.payment_term_id.payment_mode in ('LCR')">
+                                    Merci de nous retourner ce document rempli et signé, avant le <span t-esc="(context_timestamp(datetime.datetime.now()) + datetime.timedelta(days=30)).strftime('%d/%m/%Y')"/>,<br/> pour que nous puissions préparer au mieux votre livraison,
+                                    dès la date inscrite sur votre confirmation de commande.<br/><br/>
+                                    <span style="margin-left:50px"><u>IBAN:</u></span><br/>
+                                    <span style="margin-left:50px"><u>BIC/SWIFT:</u></span><br/>
+                                </p> 
+                                
+                                
+                                <p t-if="o.payment_term_id.payment_mode not in ('CHEQUE','LCR')">
+                                Merci de nous retourner ce document rempli et signé, avant le <span t-esc="(context_timestamp(datetime.datetime.now()) + datetime.timedelta(days=30)).strftime('%d/%m/%Y')"/>,<br/>
+                                pour que nous puissions préparer au mieux votre livraison, à partir de la date inscrite sur<br/>
+                                votre confirmation de commande.<br/>
+                                </p>
+                              
+                                Nous vous remercions par avance et vous souhaitons une agréable journée,<br/>
+                                Cordialement,<br/>
+                                L'équipe Jane Blue.
+                            </p>
+                            <br/><br/>
+                            <table class="table table-sm o_main_table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">
+                                            <b>Echeance / Term</b>
+                                        </th>
+                                        <th class="text-left">
+                                            <b>Montant / Amount</b>
+                                        </th>
+                                        <th class="text-left">
+                                            <b>Description</b>
+                                        </th>
+                                    </tr>
+                                    <tbody class="sale_tbody">
+                                        <tr t-foreach="o.notebook_ids" t-as="l">
+                                            <td class="text-left">
+                                                <t t-esc="l.payment_date" t-options='{"widget": "date"}' />
+                                            </td>
+                                            <td class="text-left">
+                                                <t t-esc="l.amt" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}' />
+                                            </td>
+                                            <td class="text-left">
+                                                <t t-esc="l.description" />
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black o_subtotal" style="">
+                                                <td name="td_amount_untaxed_label">
+                                                    <strong>Total</strong>
+                                                </td>
+                                                <td class="text-left">
+                                                    <span t-field="o.payable_amount" t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}' />
+                                                </td>
+                                            </tr>
+                                    </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_import_format,access_import_format,model_import_format,base.group_user,1,1,1,1
+access_journal_line,access_journal_line,model_journal_line,base.group_user,1,1,1,1
+access_partner_line,access_partner_line,model_partner_line,base.group_user,1,1,1,1
+access_account_line,access_account_line,model_account_line,base.group_user,1,1,1,1

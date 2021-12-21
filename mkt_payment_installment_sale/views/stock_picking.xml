@@ -1,0 +1,14 @@
+<odoo>
+<!-- stock.picking inherit form view -->
+<record id="sbo_stock_picking_form_view_id" model="ir.ui.view">
+    <field name="name">stock.picking.inherit.view.form</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="sale_id"/>
+                <field name="installment_status"/>
+            </xpath>
+    </field>
+</record>
+</odoo>

@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="product_stock_wizard_view">
+        <field name="name">product.stock.report</field>
+        <field name="model">product.stock.report</field>
+        <field name="arch" type="xml">
+            <form string="Stock">
+                <group>
+                    <group>
+                        <field name="end_date"/>
+                        <field name="location_id"/>
+                        <field name="season_id"/>
+                        <field name="product_tmpl_ids" widget='many2many_tags' domain="[('season_id', '=', season_id)]"/>
+                    </group>
+                    <group>
+                        <field name="vertical_id"/>
+                        <field name="horizontal_id"/>
+                    </group>
+                </group>
+                <footer>
+                      <button name="generate_xls_report" string="Download Excel Report" 
+                        type="object" default_focus="1" class="oe_highlight" />
+                         <button string="Download PDF Report" name="get_pdf_report" 
+                          type="object" class="oe_highlight"/>
+                      <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="product_stock_report_action">
+      <field name="name">Product Stock Report</field>
+      <field name="res_model">product.stock.report</field>
+      <field name="view_id" ref="product_stock_wizard_view"/>
+      <field name="binding_view_types">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <menuitem id="product_stock_report_menu" parent="stock.menu_warehouse_report" action="product_stock_report_action"/>
+
+      <record id="view_stock_excel_report" model="ir.ui.view">
+            <field name="name">stock.excel.report</field>
+            <field name="model">stock.excel.report</field>
+            <field name="arch" type="xml">
+                <form string="Generated Excel File">
+                    <group>
+                        <field name="file_name" invisible="1"/>
+                        <field name="excel_file" readonly="1" filename="file_name"/>
+                    </group>
+                    <footer>
+                     <button string="Close" type="object" special="cancel" class="btn-primary"/>
+                 </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_stock_excel_report" model="ir.actions.act_window">
+            <field name="name">Product Stock Report</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_mode">form</field>
+            <field name="res_model">stock.excel.report</field>
+            <field name="target">new</field>
+        </record>     
+  </data>
+</odoo>

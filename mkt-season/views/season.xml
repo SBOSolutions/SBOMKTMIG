@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2021 CTO IT Consulting
+    License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+-->
+<odoo>
+    <!-- Tree view for res season -->
+    <record id="view_res_season_tree" model="ir.ui.view">
+        <field name="model">res.season</field>
+        <field name="arch" type="xml">
+            <tree string="Season">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    
+    <!-- Form view for res season -->
+    <record id="view_res_season_form" model="ir.ui.view">
+        <field name="model">res.season</field>
+        <field name="arch" type="xml">
+            <form string="Season">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button"
+                                name="%(product.product_template_action_all)d"
+                                icon="fa-th-list"
+                                type="action"
+                                context="{'search_default_season_id': active_id, 'default_season_id': active_id, 'group_expand': True}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="product_count"/></span>
+                                    <span class="o_stat_text"> Products</span>
+                                </div>
+                            </button>
+                        </div>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="act_open_res_season_view">
+        <field name="name">Season</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.season</field>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to start a new season.
+            </p><p>
+                Create new season.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        action="act_open_res_season_view" id="menu_product_season"
+        parent="stock.menu_product_in_config_stock" sequence="3"/>
+</odoo>

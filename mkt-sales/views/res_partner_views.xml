@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="res_partner_view_list_inherit_SBO" model="ir.ui.view">
+    <field name="name">res.partner.inherit.view.tree</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='display_name']" position="before">
+            <field name="status"/>
+            <field name="id" optional="hide"/>
+            <field name="brand" optional="hide"/>
+            <field name="customer_code_texas" string="Code ERP (old)" optional="hide"/>
+            <field name="customer_code_sage" string="Code Aux Compta" optional="hide"/>
+            <field name="type"/>
+        </xpath>
+        <xpath expr="//field[@name='city']" position="before">
+            <field name="street"/>
+            <field name="zip"/>
+        </xpath>
+    </field>
+</record>
+
+
+<record id="res_partner_view_form_inherit_SBO" model="ir.ui.view">
+    <field name="name">res.partner.inherit.view.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/field[@name='function']" position="before">
+            <field name="status" widget="selection"/>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="after">
+            <field name="id" string="Num client"/>
+            <field name="customer_code_texas" string="Code ERP (old)"/>
+            <field name="customer_code_sage" string="Code Aux Compta"/>
+            <field name="main_contact_name"/>
+            <field name="credit_insurance_number"/>
+            <field name="store_code"/>
+            <field name="carrier_code"/>
+            <field name="brand"/>
+        </xpath>
+
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='accounting']/group[1]" position="after">
+            <group name="MKTGroupSepaRib">
+                <group string="Mandat SEPA">
+                    <field name="sepa_iban" string="IBAN"/>
+                    <field name="sepa_rum" string="RUM"/>
+                    <field name="sepa_creation_date" string="Date création SEPA"/>
+                </group>
+                <group string="RIB v2">
+                    <field name="rib_code_banque" string="Code banque"/>
+                    <field name="rib_code_guichet" string="Code guichet"/>
+                    <field name="rib_compte" string="N° de compte"/>
+                    <field name="rib_cle" string="Clé"/>
+                    <field name="rib_code_bic" string="Code BIC"/>
+                </group>
+            </group>
+        </xpath>
+
+
+
+        <xpath expr="//field[@name='property_payment_term_id']" position="after">
+            <field name="payment_by"/>
+        </xpath>
+        <xpath expr="//field[@name='category_id']" position="after">
+            <field name="customer_rank"/>
+            <field name="supplier_rank"/>
+        </xpath>
+        <xpath expr="//field[@name='team_id']" position="attributes">
+            <attribute name="groups"/>
+            <attribute name="attrs">{}</attribute>
+        </xpath>
+
+    </field>
+
+
+
+</record>
+
+
+<record id="res_partner_view_search_inherit_SBO" model="ir.ui.view">
+    <field name="name">res.partner.template.inherit.view.search</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_res_partner_filter"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search[1]/field[@name='name']" position="after">
+            <field name="customer_code_texas"/>
+            <field name="customer_code_sage"/>
+        </xpath>
+    </field>
+</record>
+
+
+</odoo>

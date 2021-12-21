@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="matrix_stock.assets_backend" name="Matrix Stock Backend" inherit_id="web.assets_backend">
+        <xpath expr="script[last()]" position="after">
+            <script src="/matrix_stock/static/src/js/section_and_note_widget.js"></script>
+        </xpath>
+    </template>
+     <template id="matrix_stock.assets_backend_scss" name="Matrix Style Backend" inherit_id="web.assets_backend">
+        <xpath expr="link[last()]" position="after">
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+            <link href="/matrix_stock/static/src/scss/matrix_stock.scss" rel="stylesheet" type="text/scss"/>
+        </xpath>
+    </template>
+
+
+</odoo>

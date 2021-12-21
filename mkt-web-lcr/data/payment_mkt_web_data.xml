@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mkt_payment" model="payment.acquirer">
+            <field name="name">LCR</field>
+            <field name="provider">lcr</field>
+            <field name="view_template_id" ref="payment.default_acquirer_button"/>
+            <field name="description" type="html">
+                <p>
+                    Ajout d'un formulaire HTML de type LCR pour le paiement via le e-commerce
+                </p>
+            </field>
+            <field name="registration_view_template_id" ref="mkt-web-lcr.lcr_debit_form" />
+            <field name="payment_flow">s2s</field>
+        </record>
+        <record id="mkt_other_payment" model="payment.acquirer">
+            <field name="name">AUTRE</field>
+            <field name="provider">transfer</field>
+            <field name="view_template_id" ref="payment.default_acquirer_button"/>
+            <field name="description" type="html">
+                <p>
+                    Ajout d'un formulaire HTML de type Autre pour le paiement via le e-commerce
+                </p>
+            </field>
+            <field name="payment_flow">form</field>
+        </record>
+    </data>
+</odoo>

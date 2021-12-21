@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+    <data noupdate="1">
+    <record id="email_template_send_plf" model="mail.template">
+        <field name="name">Sales Order: Send PLF by email</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">JANE BLUE : Plan de financement ${object.season_id.name}</field>
+        <field name="email_from">${('adv@janeblueparis.com') | safe}</field>
+        <field name="partner_to">${object.partner_id.id}</field>
+        <field name="body_html" type="html">
+                <div style="margin:0px;padding: 0px;">
+                        <p style="padding:0px;font-size: 13px;">
+                                Cher Client,<br/><br/>
+                                Vous avez reçu votre confirmation de commande SAISON ${object.season_id.display_name} dans un précédent mail.<br/><br/>
+                                Merci de trouver en pièce jointe le plan de financement associé à votre commande, ainsi que toutes <br/>
+                                les instructions selon votre mode de règlement.<br/><br/>
+                                Nous vous remercions par avance, et, dans cette attente, restons à votre disposition pour tout <br/>
+                                renseignement complémentaire sur adv@janeblueparis.com ou au 01.42.33.88.44 (de 9h à 13h <br/>
+                                et 14h à 18h du lundi au vendredi).<br/><br/>
+                                Bien cordialement,<br/><br/>
+                                Le Service Commercial<br/><br/>
+                        </p>
+                </div>
+        </field>
+        <field name="report_template" ref="report_sale_inv"/>
+        <field name="report_name">PF-${(object.name or '').replace('/','_')}</field>
+        <field name="lang">${object.partner_id.lang}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+    </data>
+
+    <data noupdate="1">
+    <record id="email_template_send_plf_reminder" model="mail.template">
+        <field name="name">Sales Order: Send PLF by email</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="subject">Relance - Plan de financement (Ref ${object.name or 'n/a' })</field>
+        <field name="email_from">${(object.user_id.email_formatted or user.email_formatted) | safe}</field>
+        <field name="partner_to">${object.partner_id.id}</field>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px;">
+                <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Cher Client,<br/><br/>
+                        Nous n'avons à ce jour pas receptionné votre plan de financement associé à votre commande.<br/>
+                        Pour rappel nous vous proposons un plan de financement par chèques, calculé à partir de la date prévue de début de vos livraisons.<br/>
+                        Merci de nous faire parvenir les chèques correspondants au plus vite, avant le DATE ?,
+                        à l'ordre de "Jane Blue" ou "E.M.D" à l'adresse suivante :<br/>
+                        Jane Blue // E.M.D
+                        20, rue des Jeuneurs
+                        75002 PARIS<br/>
+                        Dès réception de ces chèques, nous pourrons préparer au mieux votre livraison, à partir de la date inscrite sur votre confirmation de
+                        commande.<br/>
+                        Nous vous remercions par avance et vous souhaitons une agréable journée,<br/>
+                        Cordialement,<br/>
+                        L'équipe Jane Blue<br/>
+                </p>
+            </div>
+        </field>
+        <field name="report_template" ref="report_sale_inv"/>
+        <field name="report_name">PF-${(object.name or '').replace('/','_')}</field>
+        <field name="lang">${object.partner_id.lang}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+    </data>
+
+
+
+</odoo>

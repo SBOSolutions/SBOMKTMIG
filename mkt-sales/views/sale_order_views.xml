@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- sale.order inherit form view -->
+    <record id="mkt_sales_iform_view_id" model="ir.ui.view">
+        <field name="name">sale.order.inherit.view.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='team_id']" position="after">
+                <field name="agentapp_name"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="before">
+                <field name="order_type"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sale.order inherit tree view -->
+    <record id="mkt_sales_itree_view_id" model="ir.ui.view">
+        <field name="name">sale.order.inherit.view.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <!-- Add your xpath here -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="agentapp_name" optional="hide"/>
+                <field name="order_type"/>
+            </xpath>
+            <xpath expr="//tree" position="inside">
+                <field name="is_email_sent" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sale order filters -->
+    <record id="sh_inherit_view_sales_order_filter" model="ir.ui.view">
+        <field name="name">sh.inherit.view.sales.order.filter</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//search/filter" position="before">
+                <filter string="Sent Emails" name="sh_is_email_sent" domain="[('is_email_sent', '=', True)]" />
+
+                <filter string="Draft Emails" name="sh_is_email_not_send" domain="[('is_email_sent', '=', False)]" />
+            </xpath>
+        </field>
+    </record>
+    <!-- Send Mass Email multi actions for sale-->
+
+    <record id="sh_action_send_mass_email_sale" model="ir.actions.server">
+        <field name="name">Envoi confirmation par Email</field>
+
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="model_id" ref="sale.model_sale_order" />
+        <field name="binding_model_id" ref="sale.model_sale_order" />
+        <field name="code">
+            records.sh_send_mass_emails()
+        </field>
+    </record>
+
+</odoo>

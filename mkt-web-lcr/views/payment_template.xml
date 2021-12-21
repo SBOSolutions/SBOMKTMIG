@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="payment_tokens_list_inherit" name="Payment Tokens list" inherit_id="payment.payment_tokens_list">
+        <form position="attributes">
+            <attribute name="enctype">multipart/form-data</attribute>
+        </form>
+    </template>
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/mkt-web-lcr/static/src/js/payment_form.js"></script>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,150 @@
+<odoo>
+
+
+
+    <record id="sbo_generate_installment_action" model="ir.actions.server">
+        <field name="name">Généré PLF</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">
+        if records:
+            for rec in records:
+                rec.action_generate_installment()
+        </field>
+    </record>
+
+    <record id="sbo_send_installment_action" model="ir.actions.server">
+        <field name="name">Envoyer par mail le PLF</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_plf_send_by_email()</field>
+    </record>
+
+    <record id="sbo_receipt_plf_action" model="ir.actions.server">
+        <field name="name">Réception du PLF</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_plf_generate_payment()</field>
+    </record>
+
+    <record id="sbo_send_installment_reminder_action" model="ir.actions.server">
+        <field name="name">Envoyer par mail un rappel pour le PLF</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sale_order"/>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="state">code</field>
+        <field name="code">records.action_plf_send_reminder_by_mail()</field>
+    </record>
+
+	<record id="res_config_sale_installment" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherited.installment.sale</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+                <xpath expr="//div[@data-key='sale_management']/div[hasclass('o_settings_container')][2]/div[hasclass('o_setting_box')][2]" position="after">
+                        <div class="col-12 col-lg-6 o_setting_box" data-key="sale_discount">
+                                <div class="o_setting_left_pane">
+                                        <field name="installment_option"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                        <label for="installment_option" string="Installments">
+                                        </label>
+                                        <div class="text-muted">
+                                                It allows you to manage installments in Sale and Invoice.
+                                        </div>
+                                </div>
+                        </div>
+                </xpath>
+        </field>
+    </record>
+
+    <record id="sale_installment_view_order_form" model="ir.ui.view">
+        <field name="name">sale.view.form.inherited.installment</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_generate_installment" type="object" string="Generate Installment" class="oe_highlight"
+                attrs="{'invisible': ['|',('installment_yesno','!=',True),('installment_status','not in','new')]}"/>
+                <button name="action_plf_send_by_email" type="object" string="Send plf by mail" class="oe_highlight"
+                attrs="{'invisible': ['|',('installment_status','not in',('generate')),('state','not in',('sale'))]}"/>
+                <button name="action_plf_send_reminder_by_mail" type="object" string="Reminder plf by mail" class="oe_highlight"
+                attrs="{'invisible': ['|',('installment_status','not in',('sent')),('state','not in',('sale'))]}"/>
+                <button name="action_plf_generate_payment" type="object" string="Valider le PF" confirm="Avez vous bien modifier le PF ?" class="oe_highlight"
+                attrs="{'invisible': ['|',('installment_status','not in',('sent')),('state','not in',('sale'))]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="installment_yesno"/>
+                <field name="installment_status" attrs="{'invisible': [('installment_yesno','!=',True)]}"/>
+                <field name="installment_send_date" readonly = "1"/>
+            </xpath>
+            <form>
+                <field name="option" invisible="1"/>
+            </form>
+                <notebook>
+                        <page string="Installment" name="installment_lines" attrs="{'invisible': [('installment_yesno','!=',True)]}" >
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="total_amount">Total Amount</field>
+                                            <field name="tenure"/>
+                                        </group>
+                                        <group>
+                                            <field name="down_payment"/>
+                                            <field name="next_payment_date"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="payable_amount"/>
+                                            <field name="installment_amount"/>
+                                        </group>
+                                    </group>
+                                </form>
+
+                                <field name="notebook_ids" mode="tree">
+                                     <tree string="Tree String" editable="bottom">
+                                        <field name="payment_date" style="colspace:200px;" />
+                                        <field name="description"/>
+                                        <field name="amt" sum="Total"/>
+                                    </tree>
+                                </field>
+                        </page>
+                </notebook>
+        </field>
+    </record>
+
+
+<!-- sale.order inherit tree view -->
+<record id="sbo_sale_order_tree_view_id" model="ir.ui.view">
+    <field name="name">sale.order.inherit.view.tree</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='amount_total']" position="after">
+            <field name="installment_yesno" optional="show"/>
+            <field name="installment_status" widget="badge" optional="show" decoration-success="installment_status == 'received'"
+            decoration-danger="installment_status == 'new'" decoration-warning="installment_status == 'sent'" decoration-info="installment_status == 'generate'"/>
+
+        </xpath>
+
+    </field>
+</record>
+
+
+
+
+    <record model="ir.actions.act_window" id="action_sales_page_installments">
+            <field name="name">Installment Page</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mkt_payment_installment_sale.sale_installment_view_order_form"/>
+        </record>
+</odoo>

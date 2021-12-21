@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_mkt" inherit_id="account.report_invoice_document">        
+          <xpath expr="//p[@name='payment_term']" position="after">
+                    <p t-if="o.picking_ids" name="picking">
+                        <t t-foreach="o.picking_ids" t-as="picking">
+                        Livraison : <span t-field="picking.name" /> - Date de la livraison : <span t-field="picking.date_done" t-options='{"widget": "date"}' />  
+                        <br />
+                    </t>
+                </p>
+           </xpath>
+    </template>
+</odoo>

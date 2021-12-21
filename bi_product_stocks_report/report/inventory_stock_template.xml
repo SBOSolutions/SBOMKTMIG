@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="inventory_report"
+            model="product.stock.report"
+            string=" Report"
+            report_type="qweb-pdf"
+            name="bi_product_stocks_report.template_report"
+
+            menu="False"/>
+
+    <template id="template_report">
+        <t t-call="web.html_container">
+
+            <t t-call="web.external_layout">
+
+
+                <div class="page">
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
+
+                    <div class="header" style="border-bottom: 2px solid black">
+                        <h3 class="text-center">Product Inventory Report</h3>
+                    </div>
+                    <table class="table table-condensed table-bordered" style="width: 100%">
+                        <thead>
+                            <th class="text-center" style="width: 15%">End Date</th>
+                            <th class="text-center" style="width: 15%">Location</th>
+                            <th class="text-center" style="width: 15%">Season</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <span t-esc="end_date"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="location_id"/>
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="season_id"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <br/>
+                    <br/>
+                    <table class="table" style="width: 100%;border: none;">
+                        <thead>
+                            <th style="border: none;">
+                                <span>Product</span>
+                            </th>
+
+                            <th style="border: none;">
+                                <span></span>
+                            </th>
+                            <th t-foreach="h_list" t-as="h" style="border: none;">
+
+                                <span t-esc="h.name"/>
+                            </th>
+                        </thead>
+                        <thead>
+
+
+                            <tr t-foreach="ver_data" t-as="p_data">
+
+                                <t t-if="p_data[0] == True ">
+                                    <td t-foreach="p_data" t-as="v" style="border-top: solid;">
+
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td t-foreach="p_data" t-as="v" style="border: none;">
+                                        <span t-esc="v"/>
+
+                                    </td>
+                                </t>
+
+
+                            </tr>
+
+
+                        </thead>
+                    </table>
+
+
+                    <strong>
+                        <span t-esc="total_open"/>
+                    </strong>
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

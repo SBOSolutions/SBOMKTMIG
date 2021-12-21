@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mkt-season
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-28 17:28+0000\n"
+"PO-Revision-Date: 2021-11-28 18:31+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fr\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__product_count
+msgid "# Products"
+msgstr "# Produits"
+
+#. module: mkt-season
+#: model_terms:ir.ui.view,arch_db:mkt-season.view_res_season_form
+msgid "<span class=\"o_stat_text\"> Products</span>"
+msgstr "<span class=\"o_stat_text\"> Produits</span>"
+
+#. module: mkt-season
+#: model_terms:ir.actions.act_window,help:mkt-season.act_open_res_season_view
+msgid "Click to start a new season."
+msgstr "Cliquez pour commencer une nouvelle saison."
+
+#. module: mkt-season
+#: model_terms:ir.actions.act_window,help:mkt-season.act_open_res_season_view
+msgid "Create new season."
+msgstr "Créer une nouvelle saison."
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__create_date
+msgid "Created on"
+msgstr "Créé sur"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_product_product__display_name
+#: model:ir.model.fields,field_description:mkt-season.field_product_template__display_name
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__display_name
+#: model:ir.model.fields,field_description:mkt-season.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_product_product__id
+#: model:ir.model.fields,field_description:mkt-season.field_product_template__id
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__id
+#: model:ir.model.fields,field_description:mkt-season.field_sale_order__id
+msgid "ID"
+msgstr "ID"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_product_product____last_update
+#: model:ir.model.fields,field_description:mkt-season.field_product_template____last_update
+#: model:ir.model.fields,field_description:mkt-season.field_res_season____last_update
+#: model:ir.model.fields,field_description:mkt-season.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: mkt-season
+#: model:ir.model,name:mkt-season.model_product_product
+msgid "Product"
+msgstr "Article"
+
+#. module: mkt-season
+#: model:ir.model,name:mkt-season.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
+
+#. module: mkt-season
+#: model:ir.model.fields,field_description:mkt-season.field_res_season__name
+#: model_terms:ir.ui.view,arch_db:mkt-season.product_template_search_view
+msgid "Saison"
+msgstr "Saison"
+
+#. module: mkt-season
+#: model:ir.model,name:mkt-season.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: mkt-season
+#: model:ir.actions.act_window,name:mkt-season.act_open_res_season_view
+#: model:ir.model.fields,field_description:mkt-season.field_product_product__season_id
+#: model:ir.model.fields,field_description:mkt-season.field_product_template__season_id
+#: model:ir.model.fields,field_description:mkt-season.field_sale_order__season_id
+#: model:ir.ui.menu,name:mkt-season.menu_product_season
+#: model_terms:ir.ui.view,arch_db:mkt-season.view_res_season_form
+#: model_terms:ir.ui.view,arch_db:mkt-season.view_res_season_tree
+msgid "Season"
+msgstr "Saison"
+
+#. module: mkt-season
+#: model:ir.model.fields,help:mkt-season.field_res_season__product_count
+msgid "The number of products under this season"
+msgstr "Le nombre de produits avec cette saison"
+
+#. module: mkt-season
+#: model:ir.model,name:mkt-season.model_res_season
+msgid "season model management"
+msgstr "gestion des saisons"

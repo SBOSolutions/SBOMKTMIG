@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<record id='report_inv_installment' model='ir.actions.report'>
+		<field name='name'>Invoice Installment Report</field>
+		<field name='model'>account.move</field>
+		<field name='report_type'>qweb-pdf</field>
+		<field name='report_name'>mkt_payment_installment_sale.report_invoice_installment_view</field>
+		<field name='report_file'>mkt_payment_installment_sale.report_inv_installment</field>
+		<field name='binding_model_id' ref='model_account_move'/>
+		<field name='binding_type'>report</field>
+	</record>
+
+    <template id="report_invoice_installment_view">
+        <t t-call='web.html_container'>
+            <t t-foreach="docs" t-as='o'>
+                <t t-call="web.external_layout">
+                    <div class='page'>
+                        <div class="oe_structure">
+                            <br />
+                            <h4 style="text-align:center" class="text-uppercase">Invoice Installment Report</h4>
+                            <br />
+                            <h5 style="text-align:left">
+                                Invoice #
+                                <span t-field="o.name" />
+                            </h5>
+                            <br />
+                            <div>
+                                <div class="row mt32 mb32">
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Customer:</strong>
+                                        <p class="m-0" t-field="o.partner_id.name" />
+                                    </div>
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Address:</strong>
+                                        <p class="m-0">
+                                            <span t-field="o.partner_id.street" />
+                                            <span t-field="o.partner_id.city" />
+                                        </p>
+                                        <p class="m-0">
+                                            <span t-field="o.partner_id.state_id.name" />
+                                            <span t-field="o.partner_id.zip" />
+                                        </p>
+                                        <p class="m-0" t-field="o.partner_id.country_id.name" />
+                                    </div>
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Invoice Date:</strong>
+                                        <p class="m-0" t-field="o.invoice_date" />
+                                    </div>
+                                    <div class="col-auto col-3 mw-100 mb-2">
+                                        <strong>Down Payment:</strong>
+                                        <p class="m-0" t-field="o.down_payment_inv" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br/><br/>
+                            <table class="table table-sm o_main_table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left">
+                                            <b>Payment Date</b>
+                                        </th>
+                                        <th class="text-left">
+                                            <b>Amount</b>
+                                        </th>
+                                        <th class="text-left">
+                                            <b>Description</b>
+                                        </th>
+                                        <th class="text-left">
+                                            <b>Payment Status</b>
+                                        </th>
+                                    </tr>
+                                    <tbody class="sale_tbody">
+                                        <tr t-foreach="o.relation_ids" t-as="l">
+                                            <td class="text-left">
+                                                <t t-esc="l.payment_date_inv" />
+                                            </td>
+                                            <td class="text-left">
+                                                <t t-esc="l.amt_inv" />
+                                            </td>
+                                            <td class="text-left">
+                                                <t t-esc="l.description_inv" />
+                                            </td>
+                                                <td class="text-left">
+                                                    <t t-esc="l.payment_status_inv" />
+                                                </td>
+                                        </tr>
+                                    </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

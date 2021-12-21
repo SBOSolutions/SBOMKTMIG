@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_notebook_class,notebook.class,model_notebook_class,,1,1,1,1
+access_notebook_invoice,notebook.invoice,model_notebook_invoice,,1,1,1,1
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_picking_inherit_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form" />
+        <field eval="12" name="priority"/>
+        <field name="arch" type="xml">
+            <button name="action_confirm" position="before">
+                <button name="action_invoice_sent"
+                        type="object"
+                        string="Send &amp; Print"
+                        class="oe_highlight"/>
+            </button>
+            <field name="origin" position="after">
+                <field name="is_delivery" groups="mkt-stock.group_ok_delivery"/>
+            </field>
+            <!-- <button name="button_validate" position="replace">
+                <button name="button_validate" attrs="{'invisible': ['|','|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False), ('is_delivery' , '=', False)]}" string="Validate" type="object" class="oe_highlight" groups="stock.group_stock_user"/>
+            </button> -->
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- product.template inherit list view -->
+<record id="SBO_product_template_view_list_inherit" model="ir.ui.view">
+    <field name="name">product.template.inherit.view.tree</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_tree_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name="id"/>
+            <field name="brand"/>
+            <field name="product_variant_ids"/>      
+        </xpath>
+    </field>
+</record>
+
+
+<!-- product.template inherit form view -->
+<record id="SBO_product_template_view_form_inherit" model="ir.ui.view">
+    <field name="name">product.template.inherit.view.form</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='categ_id']" position="after">
+            <field name="brand"/>
+            <field name="madein_id"/>
+            <field name="licensed_id"/>
+            <field name="composition"/>
+            <field name="id"/>
+        </xpath>
+        <xpath expr="//field[@name='company_id']" position="after">
+                <field
+                    name="tag_ids"
+                    widget="many2many_tags"
+                    options="{'color_field': 'color'}"
+                />
+        </xpath>
+    </field>
+</record>
+<!-- product.template inherit kanban view -->
+<record id="SBO_product_template_kanban_view_inherit" model="ir.ui.view">
+    <field name="name">product.template.kanban (in product_template_tags)</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_kanban_view" />
+    <field name="arch" type="xml">
+        <div name="product_lst_price" position="before">
+            <div class="o_kanban_tags_section">
+                <span class="oe_kanban_list_many2many">
+                    <field
+                        name="tag_ids"
+                        widget="many2many_tags"
+                        options="{'color_field': 'color'}"
+                    />
+                </span>
+            </div>
+        </div>
+    </field>
+</record>
+
+<!-- product.template inherit search view -->
+<record id="SBO_product_template_view_search_inherit" model="ir.ui.view">
+    <field name="name">product.template.inherit.view.search</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_search_view"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search[1]/group[1]/filter[@name='categ_id']" position="after">
+            <filter name="group_by_brand" string="Marques" context="{'group_by': 'brand'}"/>
+            <field name="tag_ids" />
+        </xpath>
+    </field>
+</record>
+
+
+</odoo>

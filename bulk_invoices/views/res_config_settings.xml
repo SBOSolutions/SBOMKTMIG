@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_bulk_invoices" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account.bulk.invoices</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='invoicing_settings']/div[@id='default_setting_options']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="invoice_template_id">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <span class="o_form_label">Default Email Template</span>
+                        <div class="text-muted">
+                            Default Template of email
+                        </div>
+                        <div class="text-muted">
+                            <field name="invoice_template_id"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delete_line_in_so_wizard_view_form" model="ir.ui.view">
+        <field name="name">delete_line_in_so.wizard.view.form</field>
+        <field name="model">delete_line_in_so.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group id="product" string="Produits">
+                        <field name="product_ids_file" />
+                        <field name="products_ids" />
+                    </group>
+                    <group id="product" string="Devis / Achats">
+                        <field name="sales_orders_lines_ids" domain="[('product_id', 'in', products_ids)]">
+                            <tree>
+                                <field name="state" />
+                                <field name="order_id" />
+                                <field name="order_partner_id" />
+                                <field name="product_template_ref" />
+                                <field name="product_id" />
+                                <field name="product_template_tags" widget="many2many_tags" />
+                                <field name="product_uom_qty" />
+                            </tree>
+                        </field>
+                        <field name="purchases_orders_lines_ids" domain="[('product_id', 'in', products_ids)]"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Purger les lignes" name="clear_lines_in_so_pu" type="object" class="btn-primary" />
+                    <button string="Annulé" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="delete_line_in_so_wizard_action" model="ir.actions.act_window">
+        <field name="name">Supprimer certains produits dans les devis/achats</field>
+        <field name="res_model">delete_line_in_so.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="sales_team_config_delete_lines_in_so"
+              name="Supprimer certains produits dans les devis/achats"
+              parent="sale.menu_sale_config"
+              action="delete_line_in_so_wizard_action"
+              sequence="2"
+    />
+        <menuitem id="sales_team_config_delete_lines_in_purchase"
+              name="Supprimer certains produits dans les devis/achats"
+              parent="purchase.menu_purchase_config"
+              action="delete_line_in_so_wizard_action"
+              sequence="2"
+    />
+
+
+
+
+</odoo>

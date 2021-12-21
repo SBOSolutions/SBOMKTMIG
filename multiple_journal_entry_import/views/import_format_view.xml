@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_import_format_form">
+        <field name="name">import.format.form</field>
+        <field name="model">import.format</field>
+        <field name="arch" type="xml">
+            <form string="Import Format">
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="create_date"/>
+                        <field name="company_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Journal Table" name="journal_table">
+                            <field name="journal_lines">
+                                <tree editable="bottom">
+                                    <field name="ext_name"/>
+                                    <field name="odoo_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Partner Table" name="account_table">
+                            <field name="partner_lines">
+                                <tree editable="bottom">
+                                    <field name="ext_name"/>
+                                    <field name="odoo_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Account Table" name="partner_table">
+                            <field name="account_lines">
+                                <tree editable="bottom">
+                                    <field name="ext_name"/>
+                                    <field name="odoo_name"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model='ir.ui.view' id="view_import_format_tree">
+        <field name='name'>import.format.tree</field>
+        <field name='model'>import.format</field>
+        <field name='arch' type='xml'>
+            <tree string='Import Format'>
+                <field name='name'/>
+                <field name='create_date'/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_import_format" model="ir.actions.act_window">
+        <field name="name">Imported Formates</field>
+        <field name="res_model">import.format</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_import_format_tree"/>
+    </record>
+    <menuitem id="menu_import_format" parent="account.menu_finance_entries" action="action_import_format"/>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="matrix_report" inherit_id="product_matrix.matrix">
+        <xpath expr="." position="replace">
+            <t t-foreach="order.get_report_matrixes()" t-as="grid">
+                <t t-set="product_template" t-value="order.env['product.template'].browse(grid['product_tmpl_id'])" />
+                <t t-set="product_image" t-value="grid['picture']" />
+                <t t-set="lines" t-value="order.order_line.filtered(lambda line: line.product_template_id == product_template)" />
+                <div>
+                    <p>
+                        <span t-if="lines[0].recommended_selling_price > 0" >PVC : </span><span t-if="lines[0].recommended_selling_price > 0" t-esc="lines[0].recommended_selling_price" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                        <span class="margin-left-10">P.U : </span><span t-esc="lines[0].price_unit" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                        <span class="margin-left-10 background-color-grey">P.U Net: </span><span class="background-color-grey" t-esc="lines[0].price_reduce_taxexcl" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        <div class="col-4">
+                            <span class="font-bold" t-field="doc.season_id" /> - <span class="font-bold" t-esc="product_template.name" />
+                        </div>
+                        <div t-if="lines[0].discount > 0" class="col-2">
+                            <span class="background-color-lightblue">Remise: </span><span t-esc="lines[0].discount"/>
+                        </div>
+                        <div class="col-2">
+                            <span>Qté. Total: </span><span t-esc="sum(lines.mapped('product_uom_qty'))"/>
+                        </div>
+                        <div class="col-2">
+                            <span>Total: </span><span t-esc="sum(lines.mapped('price_subtotal'))" t-options='{"widget": "monetary", "display_currency": order.currency_id}'/>
+                        </div>
+                        <div class="col-2 text-right">
+                            Qté. / €
+                        </div>
+                    </p>
+                </div>
+                <div t-if="order.fiscal_position_id == 12" class="row">
+                    <p>
+                        <div class="col-5">
+                            Code douanier <span class="font-bold" t-field="product_template.intrastat_id.code" /> Made in <span class="font-bold" t-esc="product_template.intrastat_origin_country_id.name" />
+                        </div>
+                    </p>
+                </div>
+                <table class="o_view_grid o_product_variant_grid table table-sm">
+                    <thead>
+                        <tr>
+                            <t t-set="cpt" t-value="0" />
+                            <th t-foreach="grid['header']" t-as="column_header" class="o_grid_title_header text-left">
+                                <t t-set="cpt" t-value="cpt + 1" />
+                                <t t-if="cpt == 1">
+                                    <span class="font-blue" t-esc="column_header['name']"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-esc="column_header['name']"/>
+                                </t>
+                                <t t-set="price" t-value="column_header.get('price', False)"/>
+                                <span t-if="price" class="badge badge-pill badge-secondary">
+                                    <span class="variant_price_extra" style="white-space: nowrap;">
+                                        <t t-raw="price"/>
+                                    </span>
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="grid['matrix']" t-as="row">
+                            <t t-set="total_row_price" t-value="0" />
+                            <t t-foreach="row" t-as="cell">
+                                <td t-if="cell.get('name', False)" class="text-center">
+                                    <span t-esc="cell['name']"/>
+                                    <t t-set="price" t-value="cell.get('price', False)"/>
+                                    <span t-if="price" class="badge badge-pill badge-secondary">
+                                        <span class="variant_price_extra" style="white-space: nowrap;">
+                                            <t t-raw="price"/>
+                                        </span>
+                                    </span>
+                                </td>
+                                <t t-else="">
+                                    <t t-if="cell.get('total_qty', 0)">
+                                        <td class="text-right">
+                                            <span t-esc="cell.get('total_qty', 0)" class="o_grid_cell_container"/> / <span t-esc="total_row_price" t-options='{"widget": "monetary", "display_currency": order.currency_id}' />
+                                        </td>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-if="cell.get('is_last', False)">
+                                            <td class="text-right">
+                                                <t t-if="cell.get('qty', 0) > 0">
+                                                    <t t-set="total_row_price" t-value="total_row_price + cell.get('total_price', 0)" />
+                                                </t>
+                                                <span t-esc="cell.get('qty', 0)" class="o_grid_cell_container display_none"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td class="text-center">
+                                                <t t-if="cell.get('qty', 0) > 0">
+                                                    <t t-set="total_row_price" t-value="total_row_price + cell.get('total_price', 0)" />
+                                                    <span t-esc="cell.get('qty', 0)" class="o_grid_cell_container"/>
+                                                </t>
+                                                <span t-esc="cell.get('qty', 0)" class="o_grid_cell_container display_none"/>
+                                            </td>
+                                        </t>
+                                    </t>
+                                </t>
+                            </t>
+                        </tr>
+                    </tbody>
+                </table>
+            </t>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- res.users inherit form view 
+<record id="SBO_inherit_res_users_form_view_id" model="ir.ui.view">
+    <field name="name">res.users.inherit.view.form</field>
+    <field name="model">res.users</field>
+    <field name="inherit_id" ref="base.view_users_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='access_rights']/group[4]" position="after">
+        <group name="extra-informations">
+            <field name="team_id"/>
+        </group>
+        </xpath> 
+    </field>
+</record> -->
+
+</odoo>

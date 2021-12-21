@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+<record id="crm_team_view_list_inherit_SBO" model="ir.ui.view">
+    <field name="name">crm.team.inherit.view.tree</field>
+    <field name="model">crm.team</field>
+    <field name="inherit_id" ref="sales_team.crm_team_view_tree"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+            <field name="agent_name"/>   
+        </xpath>
+    </field>
+</record>
+
+
+<record id="crm_team_view_form_inherit_SBO" model="ir.ui.view">
+    <field name="name">crm.team.inherit.view.form</field>
+    <field name="model">crm.team</field>
+    <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='user_id']" position="before">
+            <field name="agent_name"/>
+        </xpath>
+    </field>
+</record>
+
+
+<record id="crm_team_view_search_inherit_SBO" model="ir.ui.view">
+    <field name="name">crm.team.template.inherit.view.search</field>
+    <field name="model">crm.team</field>
+    <field name="inherit_id" ref="sales_team.crm_team_salesteams_search"/>
+    <field name="arch" type="xml">
+        <xpath expr="//search[1]/field[@name='name']" position="after">
+            <field name="agent_name"/>
+        </xpath>
+    </field>
+</record>
+
+
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+<record id="inoice_installment_view_order_form" model="ir.ui.view">
+        <field name="name">invoice.view.form.inherited.installment</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <form>
+                <field name="option" invisible="1"/>
+            </form>
+                <notebook>
+                        <page string="Installment" name="installment_lines" attrs="{'invisible': [('option', '!=', True)]}" >
+                                <form>
+                                    <group>
+                                        <group>
+                                            <button name="view_installments" type="object" class="btn-primary" string="View Installments" icon="fa-th-list"/>
+                                            <field name="tenure_inv"/>
+                                            <field name="pay_date"/>
+                                            <field name="installment_amount_inv"/>
+                                            <button name="custom_action_register_payment1" type="object" class="btn-primary" string=" Pay Down Payment" context="{'active_id': active_id}" icon="fa-money"/>
+                                        </group>
+                                    </group>
+                                </form>
+                                <field name="relation_ids" mode="tree">
+                                     <tree string="Tree String" editable="bottom">
+                                        <field name="payment_date_inv" style="colspace:200px;" />
+                                        <field name="amt_inv" sum="Total"/>
+                                        <field name="description_inv"/>
+                                        <field name="payment_status_inv"/>
+                                        <button name="action_payment" type="object" class="btn-primary" string=" Pay" icon="fa-money"/>
+                                    </tree>
+                                </field>
+                        </page>
+                </notebook>
+        </field>
+</record>
+</odoo>
